@@ -40,7 +40,7 @@ Install the required packages via standard command:
 
 The database schema creation is managed by prisma migrations. The initial migrations file is under prisma/migrations folder.
 
-To setup the database run ```db:migrations```
+To setup the database run ```npm run db:migrations```
 
 See more: https://www.prisma.io/docs/concepts/components/prisma-migrate/migrate-development-production
 
