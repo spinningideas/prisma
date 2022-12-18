@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Continent {
+  continentId   String  @id @map("continent_id") @db.Uuid
+  continentCode String? @unique @map("continent_code") @db.VarChar(2)
+  continentName String? @unique @map("continent_name") @db.VarChar(50)
+
+  @@map("continent")
+}
+
+model Country {
+  countryId     String   @id @map("country_id") @db.Uuid
+  countryName   String?  @unique @map("country_name") @db.VarChar(100)
+  countryCode   String?  @map("country_code") @db.VarChar(2)
+  countryCode3  String?  @map("country_code3") @db.VarChar(3)
+  capital       String?  @map("capital") @db.VarChar(100)
+  continentCode String?  @map("continent_code") @db.VarChar(2)
+  area          Int?     @map("area")
+  population    Int?     @map("population")
+  latitude      Decimal? @map("latitude") @db.Decimal(10, 6)
+  longitude     Decimal? @map("longitude") @db.Decimal(10, 6)
+  currencyCode  String?  @map("currency_code") @db.VarChar(3)
+  currencyName  String?  @map("currency_name") @db.VarChar(50)
+  languages     String?  @map("languages") @db.VarChar(255)
+
+  @@map("country")
+}
